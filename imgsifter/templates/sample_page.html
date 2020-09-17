@@ -5,10 +5,10 @@
     </head>
     <img src="{{ url_for('static', filename= img_name)}}">
     <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
+        <button class="dropbtn">{{ df.loc[img_name.split('/')[-1],'class'] }}</button>
         <div class="dropdown-content">
             <a href="/add/1">1</a>
-            <a href="#">2</a>
+            <a href="/add/2">2</a>
             <a href="#">3</a>
             <a href="#">4</a>
             <a href="#">5</a>
