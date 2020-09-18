@@ -5,13 +5,26 @@
     </head>
     <body>
         <script language="JavaScript">
-            var i=[],img=[],j=[],a=[]
-            for (i=1;i<=1;i++){
+            var i=[],img=[],j=[],a=[],main_div=[]
+            for (i=1;i<=20;i++){
+
+                main_div=document.createElement('div')
+                main_div.className = "container";
+                main_div.style.display="inline-block";
+                main_div.style.position="relative";
+                main_div.style.padding="40px 10px";
+                main_div.style.width="100px";
+                main_div.style.height="100px";
+
+
+
                 //first input an image from gallery
                 img=document.createElement('img');
                 img.src= '/static/data/simplifed-data-only-oranges/1/IMG_6047.png'
                 img.width=100;
-                document.body.appendChild(img)
+                img.style.padding= "10px 10px 10px 10px";
+                img.style.position="absolute";
+                // img.style.display="inline-block";
     
     
                 //second create a dropdown menu for this image
@@ -29,27 +42,11 @@
                     a.textContent=j.toString(10);
                     div.appendChild(a);
                 }
-                dropdown.appendChild(div)
-                document.body.appendChild(dropdown)
+                dropdown.appendChild(div);
+                main_div.appendChild(dropdown);
+                main_div.appendChild(img);
+                document.body.appendChild(main_div);
             }
         </script>
     </body>
-
-
-    // <!-- <img src="{{ url_for('static', filename= img_name)}}" width=100px>    
-    // <div class="dropdown">
-    //     <button class="dropbtn">{{ df.loc[img_name.split('/')[-1],'class'] }}</button>
-    //     <div class="dropdown-content">
-    //         <a href="/add/1">1</a>
-    //         <a href="/add/2">2</a>
-    //         <a href="/add/3">3</a>
-    //         <a href="/add/4">4</a>
-    //         <a href="/add/5">5</a>
-    //         <a href="/add/6">6</a>
-    //         <a href="/add/7">7</a>
-    //         <a href="/add/8">8</a>
-    //         <a href="/add/9">9</a>
-    //         <a href="/add/10">10</a>
-    //     </div>
-    // </div> -->
 </html>
