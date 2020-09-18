@@ -5,7 +5,7 @@
     </head>
     <body>
         <script language="JavaScript">
-            var i=[],img=[]
+            var i=[],img=[],j=[],a=[]
             for (i=1;i<=1;i++){
                 //first input an image from gallery
                 img=document.createElement('img');
@@ -23,18 +23,13 @@
                 dropdown.appendChild(button);
                 var div=document.createElement("div");
                 div.className="dropdown-content";
-
-                var a1=document.createElement('a');
-                a1.setAttribute('href','/add/1');
-                a1.textContent='1';
-                var a2=document.createElement('a');
-                a2.setAttribute('href','/add/2');
-                a2.textContent='2';
-                div.appendChild(a1);
-                
-                div.appendChild(a1,a2);
-                dropdown.appendChild(div);
-
+                for (j=1;j<=10;j++){
+                    a=document.createElement('a');
+                    a.setAttribute('href','/add/'+j.toString(10));
+                    a.textContent=j.toString(10);
+                    div.appendChild(a);
+                }
+                dropdown.appendChild(div)
                 document.body.appendChild(dropdown)
             }
         </script>
