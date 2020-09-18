@@ -14,40 +14,44 @@
                 document.body.appendChild(img)
     
     
-                // //second create a dropdown menu for this image
-                // var dropdown = document.createElement("div");
-                // dropdown.className="dropdown";
-                // var button = document.createElement("button");
-                // button.className='dropbtn';
-                // dropdown.appendChild(button);
+                //second create a dropdown menu for this image
+                var dropdown = document.createElement("div");
+                dropdown.className="dropdown";
+                var button = document.createElement("button");
+                button.className='dropbtn';
+                button.textContent="{{ df.loc[img_name.split('/')[-1],'class'] }}"
+                // button.textContent='hi'
+                dropdown.appendChild(button);
                 // var div=document.createElement("div");
                 // div.className="dropdown-content";
                 // var a1=document.createElement('a');
                 // a1.setAttribute('href','/add/1');
                 // var a2=document.createElement('a');
-                // a2.setAttribute('href','/add/1');
+                // a2.setAttribute('href','/add/2');
                 // div.appendChild(a1);
                 // div.appendChild(a2);
                 // dropdown.appendChild(div);
+
+                document.body.appendChild(dropdown)
             }
         </script>
     </body>
 
 
-    <!-- <img src="{{ url_for('static', filename= img_name)}}" width=100px>    
-    <div class="dropdown">
-        <button class="dropbtn">{{ df.loc[img_name.split('/')[-1],'class'] }}</button>
-        <div class="dropdown-content">
-            <a href="/add/1">1</a>
-            <a href="/add/2">2</a>
-            <a href="/add/3">3</a>
-            <a href="/add/4">4</a>
-            <a href="/add/5">5</a>
-            <a href="/add/6">6</a>
-            <a href="/add/7">7</a>
-            <a href="/add/8">8</a>
-            <a href="/add/9">9</a>
-            <a href="/add/10">10</a>
-        </div>
-    </div> -->
+    // <!-- <img src="{{ url_for('static', filename= img_name)}}" width=100px>    
+    // <div class="dropdown">
+    //     <button class="dropbtn">{{ df.loc[img_name.split('/')[-1],'class'] }}</button>
+    //     <div class="dropdown-content">
+    //         <a href="/add/1">1</a>
+    //         <a href="/add/2">2</a>
+    //         <a href="/add/3">3</a>
+    //         <a href="/add/4">4</a>
+    //         <a href="/add/5">5</a>
+    //         <a href="/add/6">6</a>
+    //         <a href="/add/7">7</a>
+    //         <a href="/add/8">8</a>
+    //         <a href="/add/9">9</a>
+    //         <a href="/add/10">10</a>
+    //     </div>
+    // </div> -->
 </html>
