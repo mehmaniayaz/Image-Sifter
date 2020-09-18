@@ -12,7 +12,7 @@ def home():
     return render_template('sample_page.html',
     img_name='/data/simplifed-data-only-oranges/1/IMG_6047.png',
      df=df)
-@app.route('/add/2',methods=['GET'])
-def add_2():
-    df.loc['IMG_6047.png','class']='2'
+@app.route('/add/<string:i>',methods=['GET'])
+def change_df(i=None):
+    df.loc['IMG_6047.png','class']=i
     return redirect('/')
