@@ -7,7 +7,7 @@
         <script language="JavaScript">
             var i=[],img=[],j=[],a=[],main_div=[]
            
-            for (i=1;i<=30;i++){
+            for (i=1;i<=1000;i++){
                 main_div=document.createElement('div')
                 main_div.className = "container"+i;
                 main_div.id = "c"+i;
@@ -21,7 +21,7 @@
 
                 //first input an image from gallery
                 img=document.createElement('img');
-                img.src= ""//'/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[ip],'class']}}"+'/'+"{{df.index[ip]}}";
+                img.src= "";
 
                 img.width=100;
                 img.style.padding= "10px 10px 10px 10px";
@@ -33,7 +33,7 @@
                 dropdown.className="dropdown";
                 var button = document.createElement("button");
                 button.className='dropbtn';
-                button.textContent="{{ df.loc[df.index[1],'class'] }}"
+                button.textContent=""//"{{ df.loc[df.index[1],'class'] }}"
                 dropdown.appendChild(button);
                 var div=document.createElement("div");
                 div.className="dropdown-content";
@@ -48,10 +48,11 @@
                 main_div.appendChild(img);
                 document.body.appendChild(main_div);
             }
-            {% for j in range(1,31) %}
+            {% for j in range(1,1001) %}
                 var temp = document.getElementById('c'+"{{j}}")
                 temp.getElementsByTagName('img')[0].src = '/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[j],'class']}}"+'/'+"{{df.index[j]}}"
-            {% endfor %}  
+                temp.getElementsByTagName('button')[0].textContent = "{{ df.loc[df.index[j],'class'] }}"
+                {% endfor %}  
             </script>
     </body>
 </html>
