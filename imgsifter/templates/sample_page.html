@@ -39,7 +39,7 @@
                 div.className="dropdown-content";
                 for (j=1;j<=10;j++){
                     a=document.createElement('a');
-                    a.setAttribute('href','/add/'+j.toString(10));
+                    a.setAttribute('href','');
                     a.textContent=j.toString(10);
                     div.appendChild(a);
                 }
@@ -52,6 +52,15 @@
                 var temp = document.getElementById('c'+"{{j}}")
                 temp.getElementsByTagName('img')[0].src = '/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[j],'class']}}"+'/'+"{{df.index[j]}}"
                 temp.getElementsByTagName('button')[0].textContent = "{{ df.loc[df.index[j],'class'] }}"
+                for (var jj=0;jj<=9;jj++){
+                    // a=document.getElementById('a');
+                    temp.getElementsByClassName('dropdown')[0].getElementsByClassName('dropdown-content')[0].getElementsByTagName('a')[jj].href ='/add/'+jj.toString(10)+'/'+"{{df.index[j]}}";
+                    // temp.getElementsByClassName('dropdown')[0].getElementsByClassName('dropdown-content')[0].getElementsByTagName('a')[jj].textContent=jj.toString(10);
+                    // div.appendChild(a);
+                    
+                }
+
+
             {% endfor %}  
             </script>
     </body>
