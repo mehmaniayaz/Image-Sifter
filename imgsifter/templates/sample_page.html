@@ -7,7 +7,7 @@
         <script language="JavaScript">
             var i=[],img=[],j=[],a=[],main_div=[]
            
-            for (i=1;i<=1000;i++){
+            for (i=1;i<=30;i++){
                 main_div=document.createElement('div')
                 main_div.className = "container"+i;
                 main_div.id = "c"+i;
@@ -33,7 +33,7 @@
                 dropdown.className="dropdown";
                 var button = document.createElement("button");
                 button.className='dropbtn';
-                button.textContent=""//"{{ df.loc[df.index[1],'class'] }}"
+                button.textContent=""
                 dropdown.appendChild(button);
                 var div=document.createElement("div");
                 div.className="dropdown-content";
@@ -48,11 +48,11 @@
                 main_div.appendChild(img);
                 document.body.appendChild(main_div);
             }
-            {% for j in range(1,1001) %}
+            {% for j in range(1,31) %}
                 var temp = document.getElementById('c'+"{{j}}")
                 temp.getElementsByTagName('img')[0].src = '/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[j],'class']}}"+'/'+"{{df.index[j]}}"
                 temp.getElementsByTagName('button')[0].textContent = "{{ df.loc[df.index[j],'class'] }}"
-                {% endfor %}  
+            {% endfor %}  
             </script>
     </body>
 </html>
