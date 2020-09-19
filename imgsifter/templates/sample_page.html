@@ -6,10 +6,11 @@
     <body>
         <script language="JavaScript">
             var i=[],img=[],j=[],a=[],main_div=[]
-            for (i=1;i<=20;i++){
-
+           
+            for (i=1;i<=30;i++){
                 main_div=document.createElement('div')
-                main_div.className = "container";
+                main_div.className = "container"+i;
+                main_div.id = "c"+i;
                 main_div.style.display="inline-block";
                 main_div.style.position="relative";
                 main_div.style.padding="40px 10px";
@@ -20,11 +21,11 @@
 
                 //first input an image from gallery
                 img=document.createElement('img');
-                img.src= '/static/data/simplifed-data-only-oranges/1/IMG_6047.png'
+                img.src= ""//'/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[ip],'class']}}"+'/'+"{{df.index[ip]}}";
+
                 img.width=100;
                 img.style.padding= "10px 10px 10px 10px";
                 img.style.position="absolute";
-                // img.style.display="inline-block";
     
     
                 //second create a dropdown menu for this image
@@ -32,7 +33,7 @@
                 dropdown.className="dropdown";
                 var button = document.createElement("button");
                 button.className='dropbtn';
-                button.textContent="{{ df.loc[img_name.split('/')[-1],'class'] }}"
+                button.textContent="{{ df.loc[df.index[1],'class'] }}"
                 dropdown.appendChild(button);
                 var div=document.createElement("div");
                 div.className="dropdown-content";
@@ -47,6 +48,10 @@
                 main_div.appendChild(img);
                 document.body.appendChild(main_div);
             }
-        </script>
+            {% for j in range(1,31) %}
+                var temp = document.getElementById('c'+"{{j}}")
+                temp.getElementsByTagName('img')[0].src = '/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[j],'class']}}"+'/'+"{{df.index[j]}}"
+            {% endfor %}  
+            </script>
     </body>
 </html>
