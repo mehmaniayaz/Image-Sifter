@@ -12,6 +12,7 @@
   border-color: black;
   padding: 10px 10px 10px 10px;
   position: relative;
+  /* font-family: Arial; */
 }
 
 .all-button{
@@ -23,6 +24,7 @@
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
   border-color: black;
+  /* font-family: Arial; */
 }
 
 .random-button{
