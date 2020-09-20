@@ -1,5 +1,7 @@
 from flask import Flask, render_template,redirect
 import pandas as pd
+import shutil
+from pathlib import Path
 
 app = Flask(__name__,template_folder='../templates')
 df = pd.read_csv('imgsifter/src/static/data/df_classes.csv')
@@ -9,10 +11,10 @@ df['class'] = df['class'].astype('string')
 @app.route('/')
 def home():
     ## read images from each category and display them 20 at a time. See example below.
-    return render_template('sample_page.html',
-    img_name='/data/simplifed-data-only-oranges/1/IMG_6047.png',
-     df=df,ip=0)
-@app.route('/add/<string:i>/<string:j>',methods=['GET'])
-def change_df(i=None):
-    df.loc[j,'class']=i
+    return render_template('sample_page.html',df=df)
+@app.route('/add/<string:class_name>/<string:img_name>',methods=['GET'])
+def change_df(class_name=None,img_name=None):
+    shutil.move(str(Path('imgsifter/src/static/data/simplifed-data-only-oranges')/Path(df.loc[img_name,'class'])/Path(img_name)),str(Path('imgsifter/src/static/data/simplifed-data-only-oranges')/Path(class_name)))
+    df.loc[img_name,'class']=class_name
+
     return redirect('/')
