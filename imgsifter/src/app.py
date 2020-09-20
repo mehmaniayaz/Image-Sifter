@@ -16,5 +16,6 @@ def home():
 def change_df(class_name=None,img_name=None):
     shutil.move(str(Path('imgsifter/src/static/data/simplifed-data-only-oranges')/Path(df.loc[img_name,'class'])/Path(img_name)),str(Path('imgsifter/src/static/data/simplifed-data-only-oranges')/Path(class_name)))
     df.loc[img_name,'class']=class_name
+    df.to_csv('imgsifter/src/static/data/df_classes.csv')
 
     return redirect('/')

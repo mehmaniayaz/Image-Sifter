@@ -53,7 +53,7 @@
                 temp.getElementsByTagName('img')[0].src = '/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[j],'class']}}"+'/'+"{{df.index[j]}}"
                 temp.getElementsByTagName('button')[0].textContent = "{{ df.loc[df.index[j],'class'] }}"
                 for (var jj=0;jj<=9;jj++){
-                    temp.getElementsByClassName('dropdown')[0].getElementsByClassName('dropdown-content')[0].getElementsByTagName('a')[jj].href ='/add/'+jj.toString(10)+'/'+"{{df.index[j]}}";
+                    temp.getElementsByClassName('dropdown')[0].getElementsByClassName('dropdown-content')[0].getElementsByTagName('a')[jj].href ='/add/'+(jj+1).toString(10)+'/'+"{{df.index[j]}}";
                     
                 }
 
