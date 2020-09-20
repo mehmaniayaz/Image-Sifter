@@ -4,6 +4,13 @@
         <link rel="stylesheet" href="./static/styles/styles.css">
     </head>
     <body>
+        <div id="header-button">
+            <button class="topbtn">All</button>
+            <button class="topbtn">Class</button>
+            <button class="topbtn">Random</button>
+        </div>
+
+
         <script language="JavaScript">
             var i=[],img=[],j=[],a=[],main_div=[]
            
@@ -56,8 +63,6 @@
                     temp.getElementsByClassName('dropdown')[0].getElementsByClassName('dropdown-content')[0].getElementsByTagName('a')[jj].href ='/add/'+(jj+1).toString(10)+'/'+"{{df.index[j]}}";
                     
                 }
-
-
             {% endfor %}  
             </script>
     </body>
