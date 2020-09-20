@@ -4,14 +4,14 @@ import shutil
 from pathlib import Path
 
 app = Flask(__name__,template_folder='../templates')
-df = pd.read_csv('imgsifter/src/static/data/df_classes.csv')
-df.set_index('image_name',inplace=True)
-df['class'] = df['class'].astype('string')
+df_main = pd.read_csv('imgsifter/src/static/data/df_classes.csv')
+df_main.set_index('image_name',inplace=True)
+df_main['class'] = df_main['class'].astype('string')
 
 @app.route('/')
 def home():
-    ## read images from each category and display them 20 at a time. See example below.
-    return render_template('sample_page.html',df=df)
+    df = df_main[df_main['class']=='1']
+    return render_template('sample_page.html',df=df,main_class=1)
 @app.route('/add/<string:class_name>/<string:img_name>',methods=['GET'])
 def change_df(class_name=None,img_name=None):
     shutil.move(str(Path('imgsifter/src/static/data/simplifed-data-only-oranges'
@@ -21,3 +21,12 @@ def change_df(class_name=None,img_name=None):
     df.to_csv('imgsifter/src/static/data/df_classes.csv')
 
     return redirect('/')
+
+# @app.route('/select_all',methods=['GET'])
+
+# @app.route('/select_randomly',methods=['GET'])
+
+@app.route('/add/topClass/<string:main_class>',methods=['GET'])
+def change_main_class(main_class):
+    df = df_main[df_main['class']==main_class]
+    return render_template('sample_page.html',df=df,main_class=main_class)
