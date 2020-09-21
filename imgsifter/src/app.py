@@ -12,7 +12,7 @@ df_main['class'] = df_main['class'].astype('string')
 @app.route('/topClass/1')
 def home():
     df = df_main[df_main['class']=='1']
-    return render_template('sample_page.html',df=df,main_class=1,view_status='all')
+    return render_template('index.html',df=df,main_class=1,view_status='all')
 
 @app.route('/add/<view_status>/<class_name>/<img_name>',methods=['GET'])
 def change_df(view_status,class_name,img_name):
@@ -32,9 +32,9 @@ def change_df(view_status,class_name,img_name):
 @app.route('/select_all/<string:main_class>',methods=['GET'])
 def select_all(main_class):
     df = df_main[df_main['class']==main_class]
-    return render_template('sample_page.html',df=df,main_class=main_class,view_status='all')
+    return render_template('index.html',df=df,main_class=main_class,view_status='all')
 
 @app.route('/select_randomly/<string:main_class>',methods=['GET'])
 def select_randomly(main_class):
     df = df_main[df_main['class']==main_class].sample(10)
-    return render_template('sample_page.html',df=df,main_class=main_class,view_status='random')
+    return render_template('index.html',df=df,main_class=main_class,view_status='random')
