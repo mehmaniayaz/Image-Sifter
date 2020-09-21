@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- <link rel="stylesheet" href="./static/styles/styles.css"> -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
-        
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">        
     </head>
     <body>
         <div id="header-button">
@@ -42,8 +40,6 @@
                 main_div.style.width="200px";
                 main_div.style.height="170px";
 
-
-
                 //first input an image from gallery
                 img=document.createElement('img');
                 img.src= "";
@@ -51,7 +47,6 @@
                 img.width=100;
                 img.style.padding= "10px 10px 10px 10px";
                 img.style.position="absolute";
-    
     
                 //second create a dropdown menu for this image
                 var dropdown = document.createElement("div");
