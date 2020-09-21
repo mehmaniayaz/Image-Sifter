@@ -13,4 +13,4 @@ This application can be used to examine whether images are correctly placed in t
 4) Make sure the image folder is inside the data folder as well.
 5) Run flask run
 ```
-<img src="https://github.com/mehmaniayaz/random-walk-visual/blob/master/demo.gif" width="600" />
+<img src="https://github.com/mehmaniayaz/Image-Sifter/blob/master/demo.gif" width="800" />
