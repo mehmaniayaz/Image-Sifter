@@ -25,7 +25,10 @@ def change_df(class_name=None,img_name=None):
 
     return redirect('/topClass/'+orig_class)
 
-# @app.route('/select_all',methods=['GET'])
+@app.route('/select_all/<string:main_class>',methods=['GET'])
+def select_all(main_class):
+    df = df_main[df_main['class']==main_class]
+    return render_template('sample_page.html',df=df,main_class=main_class)
 
 @app.route('/select_randomly/<string:main_class>',methods=['GET'])
 def select_randomly(main_class):
