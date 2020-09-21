@@ -12,16 +12,16 @@
             <div class="dropdown-top">
                 <button class="topbtn-top">Class: {{main_class}}</button>
                 <div class="dropdown-top-content">
-                    <a href='/topClass/1'>1</a>
-                    <a href='/topClass/2'>2</a>
-                    <a href='/topClass/3'>3</a>
-                    <a href='/topClass/4'>4</a>
-                    <a href='/topClass/5'>5</a>
-                    <a href='/topClass/6'>6</a>
-                    <a href='/topClass/7'>7</a>
-                    <a href='/topClass/8'>8</a>
-                    <a href='/topClass/9'>9</a>
-                    <a href='/topClass/10'>10</a>
+                    <a href='/select_all/1'>1</a>
+                    <a href='/select_all/2'>2</a>
+                    <a href='/select_all/3'>3</a>
+                    <a href='/select_all/4'>4</a>
+                    <a href='/select_all/5'>5</a>
+                    <a href='/select_all/6'>6</a>
+                    <a href='/select_all/7'>7</a>
+                    <a href='/select_all/8'>8</a>
+                    <a href='/select_all/9'>9</a>
+                    <a href='/select_all/10'>10</a>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
                 temp.getElementsByTagName('img')[0].src = '/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[j],'class']}}"+'/'+"{{df.index[j]}}"
                 temp.getElementsByTagName('button')[0].textContent = "{{ df.loc[df.index[j],'class'] }}"
                 for (var jj=0;jj<=9;jj++){
-                    temp.getElementsByClassName('dropdown')[0].getElementsByClassName('dropdown-content')[0].getElementsByTagName('a')[jj].href ='/add/'+(jj+1).toString(10)+'/'+"{{df.index[j]}}";
+                    temp.getElementsByClassName('dropdown')[0].getElementsByClassName('dropdown-content')[0].getElementsByTagName('a')[jj].href ='/add/{{ view_status }}/'+(jj+1).toString(10)+'/'+"{{df.index[j]}}";
                     
                 }
             {% endfor %}  
