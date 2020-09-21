@@ -29,7 +29,7 @@ def change_df(class_name=None,img_name=None):
 
 @app.route('/select_randomly/<string:main_class>',methods=['GET'])
 def select_randomly(main_class):
-    df = df_main[df_main['class']==main_class].sample(30)
+    df = df_main[df_main['class']==main_class].sample(10)
     return render_template('sample_page.html',df=df,main_class=main_class)
 
 @app.route('/topClass/<string:main_class>',methods=['GET'])
