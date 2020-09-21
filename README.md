@@ -7,4 +7,9 @@ This application can be used to examine whether images are correctly placed in t
 
 ## Installation
 '''
+1) Install the wheel and all packages in requirements.txt.
+2) from src.data_augmentation import dataframe_root_directory.
+3) Run the function and put the resulting dataframe inside the data folder.
+4) Make sure the image folder is inside the data folder as well.
+5) Run flask run
 '''
