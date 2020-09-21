@@ -1,1 +1,1 @@
-# Image-Sifter
+# Motivation
