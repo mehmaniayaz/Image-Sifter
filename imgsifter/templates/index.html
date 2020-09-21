@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">        
+    </head>
+    <body>
+        <div id="header-button">
+            <a class="all-button" style="text-decoration: none;" href='/select_all/{{ main_class }}'>All </a>
+
+            <div class="dropdown-top">
+                <button class="topbtn-top">Class: {{main_class}}</button>
+                <div class="dropdown-top-content">
+                    <a href='/select_all/1'>1</a>
+                    <a href='/select_all/2'>2</a>
+                    <a href='/select_all/3'>3</a>
+                    <a href='/select_all/4'>4</a>
+                    <a href='/select_all/5'>5</a>
+                    <a href='/select_all/6'>6</a>
+                    <a href='/select_all/7'>7</a>
+                    <a href='/select_all/8'>8</a>
+                    <a href='/select_all/9'>9</a>
+                    <a href='/select_all/10'>10</a>
+                </div>
+            </div>
+
+            <a class="random-button" style="text-decoration: none;" href='/select_randomly/{{ main_class }}'>Random 10</a>
+        </div>
+
+
+        <script language="JavaScript">
+            var i=[],img=[],j=[],a=[],main_div=[]
+           
+            for (i=0;i<{{ df|length }};i++){
+                main_div=document.createElement('div')
+                main_div.className = "container"+i;
+                main_div.id = "c"+i;
+                main_div.style.display="inline-block";
+                main_div.style.position="relative";
+                main_div.style.padding="40px 10px";
+                main_div.style.width="200px";
+                main_div.style.height="170px";
+
+                //first input an image from gallery
+                img=document.createElement('img');
+                img.src= "";
+
+                img.width=100;
+                img.style.padding= "10px 10px 10px 10px";
+                img.style.position="absolute";
+    
+                //second create a dropdown menu for this image
+                var dropdown = document.createElement("div");
+                dropdown.className="dropdown";
+                var button = document.createElement("button");
+                button.className='dropbtn';
+                button.textContent=""
+                dropdown.appendChild(button);
+                var div=document.createElement("div");
+                div.className="dropdown-content";
+                for (j=1;j<=10;j++){
+                    a=document.createElement('a');
+                    a.setAttribute('href','');
+                    a.textContent=j.toString(10);
+                    div.appendChild(a);
+                }
+                dropdown.appendChild(div);
+                main_div.appendChild(dropdown);
+                main_div.appendChild(img);
+                document.body.appendChild(main_div);
+            }
+            {% for j in range(df|length) %}
+                var temp = document.getElementById('c'+"{{j}}")
+                temp.getElementsByTagName('img')[0].src = '/static/data/simplifed-data-only-oranges/'+"{{df.loc[df.index[j],'class']}}"+'/'+"{{df.index[j]}}"
+                temp.getElementsByTagName('button')[0].textContent = "{{ df.loc[df.index[j],'class'] }}"
+                for (var jj=0;jj<=9;jj++){
+                    temp.getElementsByClassName('dropdown')[0].getElementsByClassName('dropdown-content')[0].getElementsByTagName('a')[jj].href ='/add/{{ view_status }}/'+(jj+1).toString(10)+'/'+"{{df.index[j]}}";
+                    
+                }
+            {% endfor %}  
+            </script>
+    </body>
+</html>
